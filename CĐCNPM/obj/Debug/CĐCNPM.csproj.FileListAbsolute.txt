@@ -1,0 +1,64 @@
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.exe.config
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.exe
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.pdb
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csprojAssemblyReference.cache
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.LoginForm.resources
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.Properties.Resources.resources
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csproj.GenerateResource.cache
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.exe
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.pdb
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.dll
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.xml
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.AdminForm.resources
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.RoomManagerForm.resources
+C:\Users\NGUYEN TRONG NHAT\source\repos\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csproj.CopyComplete
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.exe.config
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.exe
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.pdb
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.dll
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.SqlServer.dll
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.xml
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.SqlServer.xml
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csprojAssemblyReference.cache
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.AdminForm.resources
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.LoginForm.resources
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.RoomManagerForm.resources
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.Properties.Resources.resources
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csproj.GenerateResource.cache
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csproj.CopyComplete
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.exe
+D:\Hoc tap\Nam3\hk2\Chuyên Đề Công Nghệ Phần Mềm\Đồ Án Chuyên Đề Công Nghệ Phần Mềm\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.pdb
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.exe.config
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.exe
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.pdb
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.dll
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.xml
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csprojAssemblyReference.cache
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.LoginForm.resources
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.RoomManagerForm.resources
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.Properties.Resources.resources
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csproj.GenerateResource.cache
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csproj.CopyComplete
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.exe
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.pdb
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.AdminForm.resources
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.exe.config
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.exe
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\bin\Debug\CĐCNPM.pdb
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.dll
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.xml
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csprojAssemblyReference.cache
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.AdminForm.resources
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.LoginForm.resources
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.RoomManagerForm.resources
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.Properties.Resources.resources
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csproj.GenerateResource.cache
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.csproj.CopyComplete
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.exe
+C:\Users\NGUYEN TRONG NHAT\Desktop\Project\source\Project_Code\CĐCNPM\CĐCNPM\obj\Debug\CĐCNPM.pdb

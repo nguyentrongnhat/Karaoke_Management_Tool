@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_KaraokeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="isAdmin" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Dichvu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenDV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiDV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GiaDV" Type="Int32" />
+    <NavigationProperty Name="YC_dichvu" Relationship="Self.FK_MaDV" FromRole="Dichvu" ToRole="YC_dichvu" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MSNV" />
+    </Key>
+    <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PhienDungPhong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MSPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Ngaydung" Type="DateTime" Precision="0" />
+    <Property Name="Batdau" Type="Time" Precision="7" />
+    <Property Name="Ketthuc" Type="Time" Precision="7" />
+    <Property Name="Thanhtoan" Type="Boolean" />
+    <NavigationProperty Name="YC_dichvu" Relationship="Self.FK_ID_Phien" FromRole="PhienDungPhong" ToRole="YC_dichvu" />
+    <NavigationProperty Name="Phong" Relationship="Self.FK_MSPhong" FromRole="PhienDungPhong" ToRole="Phong" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="MSPhong" />
+    </Key>
+    <Property Name="MSPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoaiPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GiaPhong" Type="Int32" />
+    <NavigationProperty Name="PhienDungPhongs" Relationship="Self.FK_MSPhong" FromRole="Phong" ToRole="PhienDungPhong" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="YC_dichvu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+      <PropertyRef Name="ID_Phien" />
+    </Key>
+    <Property Name="MaDV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Phien" Type="Int32" Nullable="false" />
+    <Property Name="Soluong" Type="Int32" />
+    <NavigationProperty Name="Dichvu" Relationship="Self.FK_MaDV" FromRole="YC_dichvu" ToRole="Dichvu" />
+    <NavigationProperty Name="PhienDungPhong" Relationship="Self.FK_ID_Phien" FromRole="YC_dichvu" ToRole="PhienDungPhong" />
+  </EntityType>
+  <Association Name="FK_MaDV">
+    <End Role="Dichvu" Type="Self.Dichvu" Multiplicity="1" />
+    <End Role="YC_dichvu" Type="Self.YC_dichvu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dichvu">
+        <PropertyRef Name="MaDV" />
+      </Principal>
+      <Dependent Role="YC_dichvu">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_Phien">
+    <End Role="PhienDungPhong" Type="Self.PhienDungPhong" Multiplicity="1" />
+    <End Role="YC_dichvu" Type="Self.YC_dichvu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhienDungPhong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="YC_dichvu">
+        <PropertyRef Name="ID_Phien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MSPhong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+    <End Role="PhienDungPhong" Type="Self.PhienDungPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="MSPhong" />
+      </Principal>
+      <Dependent Role="PhienDungPhong">
+        <PropertyRef Name="MSPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QL_KaraokeEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Dichvus" EntityType="Self.Dichvu" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="PhienDungPhongs" EntityType="Self.PhienDungPhong" />
+    <EntitySet Name="Phongs" EntityType="Self.Phong" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="YC_dichvu" EntityType="Self.YC_dichvu" />
+    <AssociationSet Name="FK_MaDV" Association="Self.FK_MaDV">
+      <End Role="Dichvu" EntitySet="Dichvus" />
+      <End Role="YC_dichvu" EntitySet="YC_dichvu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_Phien" Association="Self.FK_ID_Phien">
+      <End Role="PhienDungPhong" EntitySet="PhienDungPhongs" />
+      <End Role="YC_dichvu" EntitySet="YC_dichvu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MSPhong" Association="Self.FK_MSPhong">
+      <End Role="Phong" EntitySet="Phongs" />
+      <End Role="PhienDungPhong" EntitySet="PhienDungPhongs" />
+    </AssociationSet>
+    <FunctionImport Name="AUTO_IDNV">
+      <Parameter Name="TEN" Mode="In" Type="String" />
+      <Parameter Name="NGAY" Mode="In" Type="DateTime" />
+      <Parameter Name="GIOI" Mode="In" Type="String" />
+      <Parameter Name="CMND" Mode="In" Type="String" />
+      <Parameter Name="DIACHI" Mode="In" Type="String" />
+      <Parameter Name="DIENTHOAI" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DICH_VU">
+      <Parameter Name="TenDV" Mode="In" Type="String" />
+      <Parameter Name="LoaiDV" Mode="In" Type="String" />
+      <Parameter Name="GiaDV" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="NHAP_PHONG">
+      <Parameter Name="LoaiPhong" Mode="In" Type="String" />
+      <Parameter Name="GiaPhong" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PHIEN_DUNG_PHONG">
+      <Parameter Name="MSPhong" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QL_KaraokeModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QL_KaraokeModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLy_KaraokeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="isAdmin" Type="bit" />
+  </EntityType>
+  <EntityType Name="Dichvu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenDV" Type="nvarchar" MaxLength="20" />
+    <Property Name="LoaiDV" Type="nvarchar" MaxLength="20" />
+    <Property Name="GiaDV" Type="int" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MSNV" />
+    </Key>
+    <Property Name="MSNV" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="80" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="CMND" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="DienThoai" Type="char" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PhienDungPhong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSPhong" Type="varchar" MaxLength="20" />
+    <Property Name="Ngaydung" Type="date" />
+    <Property Name="Batdau" Type="time" Precision="7" />
+    <Property Name="Ketthuc" Type="time" Precision="7" />
+    <Property Name="Thanhtoan" Type="bit" />
+    <Property Name="Dongia" Type="int" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="MSPhong" />
+    </Key>
+    <Property Name="MSPhong" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LoaiPhong" Type="nvarchar" MaxLength="20" />
+    <Property Name="Trangthai" Type="nvarchar" MaxLength="20" />
+    <Property Name="GiaPhong" Type="int" />
+  </EntityType>
+  <EntityType Name="YC_dichvu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+      <PropertyRef Name="ID_Phien" />
+    </Key>
+    <Property Name="MaDV" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ID_Phien" Type="int" Nullable="false" />
+    <Property Name="Soluong" Type="int" />
+  </EntityType>
+  <Association Name="FK_ID_Phien">
+    <End Role="PhienDungPhong" Type="Self.PhienDungPhong" Multiplicity="1" />
+    <End Role="YC_dichvu" Type="Self.YC_dichvu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhienDungPhong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="YC_dichvu">
+        <PropertyRef Name="ID_Phien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaDV">
+    <End Role="Dichvu" Type="Self.Dichvu" Multiplicity="1" />
+    <End Role="YC_dichvu" Type="Self.YC_dichvu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dichvu">
+        <PropertyRef Name="MaDV" />
+      </Principal>
+      <Dependent Role="YC_dichvu">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MSPhong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+    <End Role="PhienDungPhong" Type="Self.PhienDungPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="MSPhong" />
+      </Principal>
+      <Dependent Role="PhienDungPhong">
+        <PropertyRef Name="MSPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AUTO_IDNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TEN" Type="nvarchar" Mode="In" />
+    <Parameter Name="NGAY" Type="date" Mode="In" />
+    <Parameter Name="GIOI" Type="nvarchar" Mode="In" />
+    <Parameter Name="CMND" Type="char" Mode="In" />
+    <Parameter Name="DIACHI" Type="nvarchar" Mode="In" />
+    <Parameter Name="DIENTHOAI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DICH_VU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDV" Type="nvarchar" Mode="In" />
+    <Parameter Name="LoaiDV" Type="nvarchar" Mode="In" />
+    <Parameter Name="GiaDV" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GET_DIFF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Start" Type="time" Mode="In" />
+    <Parameter Name="End" Type="time" Mode="In" />
+  </Function>
+  <Function Name="NHAP_PHONG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoaiPhong" Type="nvarchar" Mode="In" />
+    <Parameter Name="GiaPhong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PHIEN_DUNG_PHONG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSPhong" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_selectPhong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QuanLy_KaraokeModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dichvu" EntityType="Self.Dichvu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhienDungPhong" EntityType="Self.PhienDungPhong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YC_dichvu" EntityType="Self.YC_dichvu" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ID_Phien" Association="Self.FK_ID_Phien">
+      <End Role="PhienDungPhong" EntitySet="PhienDungPhong" />
+      <End Role="YC_dichvu" EntitySet="YC_dichvu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaDV" Association="Self.FK_MaDV">
+      <End Role="Dichvu" EntitySet="Dichvu" />
+      <End Role="YC_dichvu" EntitySet="YC_dichvu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MSPhong" Association="Self.FK_MSPhong">
+      <End Role="Phong" EntitySet="Phong" />
+      <End Role="PhienDungPhong" EntitySet="PhienDungPhong" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

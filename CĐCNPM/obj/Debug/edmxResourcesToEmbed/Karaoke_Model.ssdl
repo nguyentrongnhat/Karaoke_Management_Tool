@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_KaraokeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="isAdmin" Type="bit" />
+  </EntityType>
+  <EntityType Name="Dichvu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenDV" Type="nvarchar" MaxLength="20" />
+    <Property Name="LoaiDV" Type="nvarchar" MaxLength="20" />
+    <Property Name="GiaDV" Type="int" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MSNV" />
+    </Key>
+    <Property Name="MSNV" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="80" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="CMND" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="DienThoai" Type="char" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PhienDungPhong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSPhong" Type="varchar" MaxLength="20" />
+    <Property Name="Ngaydung" Type="date" />
+    <Property Name="Batdau" Type="time" Precision="7" />
+    <Property Name="Ketthuc" Type="time" Precision="7" />
+    <Property Name="Thanhtoan" Type="bit" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="MSPhong" />
+    </Key>
+    <Property Name="MSPhong" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LoaiPhong" Type="nvarchar" MaxLength="20" />
+    <Property Name="Trangthai" Type="nvarchar" MaxLength="20" />
+    <Property Name="GiaPhong" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="YC_dichvu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+      <PropertyRef Name="ID_Phien" />
+    </Key>
+    <Property Name="MaDV" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ID_Phien" Type="int" Nullable="false" />
+    <Property Name="Soluong" Type="int" />
+  </EntityType>
+  <Association Name="FK_ID_Phien">
+    <End Role="PhienDungPhong" Type="Self.PhienDungPhong" Multiplicity="1" />
+    <End Role="YC_dichvu" Type="Self.YC_dichvu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhienDungPhong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="YC_dichvu">
+        <PropertyRef Name="ID_Phien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaDV">
+    <End Role="Dichvu" Type="Self.Dichvu" Multiplicity="1" />
+    <End Role="YC_dichvu" Type="Self.YC_dichvu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dichvu">
+        <PropertyRef Name="MaDV" />
+      </Principal>
+      <Dependent Role="YC_dichvu">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MSPhong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+    <End Role="PhienDungPhong" Type="Self.PhienDungPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="MSPhong" />
+      </Principal>
+      <Dependent Role="PhienDungPhong">
+        <PropertyRef Name="MSPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AUTO_IDNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TEN" Type="nvarchar" Mode="In" />
+    <Parameter Name="NGAY" Type="date" Mode="In" />
+    <Parameter Name="GIOI" Type="nvarchar" Mode="In" />
+    <Parameter Name="CMND" Type="char" Mode="In" />
+    <Parameter Name="DIACHI" Type="nvarchar" Mode="In" />
+    <Parameter Name="DIENTHOAI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DICH_VU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenDV" Type="nvarchar" Mode="In" />
+    <Parameter Name="LoaiDV" Type="nvarchar" Mode="In" />
+    <Parameter Name="GiaDV" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="NHAP_PHONG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoaiPhong" Type="nvarchar" Mode="In" />
+    <Parameter Name="GiaPhong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PHIEN_DUNG_PHONG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MSPhong" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QL_KaraokeModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dichvu" EntityType="Self.Dichvu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhienDungPhong" EntityType="Self.PhienDungPhong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YC_dichvu" EntityType="Self.YC_dichvu" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ID_Phien" Association="Self.FK_ID_Phien">
+      <End Role="PhienDungPhong" EntitySet="PhienDungPhong" />
+      <End Role="YC_dichvu" EntitySet="YC_dichvu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaDV" Association="Self.FK_MaDV">
+      <End Role="Dichvu" EntitySet="Dichvu" />
+      <End Role="YC_dichvu" EntitySet="YC_dichvu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MSPhong" Association="Self.FK_MSPhong">
+      <End Role="Phong" EntitySet="Phong" />
+      <End Role="PhienDungPhong" EntitySet="PhienDungPhong" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
